@@ -12,7 +12,7 @@ export const createRandomData = (count) => {
 }
 
 export const columns = [
-  { field: 'ProductID', title: 'ID', width: '50px' },
+  { field: 'ProductID', title: 'ID', width: '50px', filterable: false },
   { field: 'ProductName', title: 'Product Name' },
   { field: 'UnitPrice', filter: 'numeric', title: 'Unit Price' },
   { field: 'UnitsInStock', title: 'Units In Stock' }

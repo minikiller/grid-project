@@ -1,6 +1,6 @@
 import { onMounted, ref, computed } from 'vue'
 import { orderBy } from '@progress/kendo-data-query'
-import { useSelect } from '../select/select'
+import { selectedID } from '../select/select'
 
 export const tcSortProps = {
   tcSortColumns: {
@@ -11,9 +11,9 @@ export const tcSortProps = {
 
 export const tcSortEvents = ['sortChange']
 
-export const useSort = (props, emits) => {
-  const sortColumn = ref([])
+export const sortColumn = ref([])
 
+export const useSort = (props, emits) => {
   const onSortChange = (e) => {
     console.log(e.sort)
     sortColumn.value = e.sort
@@ -23,14 +23,12 @@ export const useSort = (props, emits) => {
   const sortedItems = computed(() => {
     // let result = props.tcData.map((item) => ({ ...item, selected: item[props.idField] === selectedID.value }))
 
-    // const { items } = useSelect(props, emits)
-    let result: any[] = []
+    let items = props.tcData.map((item) => { return { ...item, selected: item[props.idField] === selectedID.value } })
     // result = items as unknown as any[]
-    console.log('fdfdf')
     if (props.tcSortColumns) {
-      result = orderBy(props.tcData, sortColumn.value)
+      items = orderBy(items, sortColumn.value)
     }
-    return result
+    return items
   })
 
   onMounted(() => {

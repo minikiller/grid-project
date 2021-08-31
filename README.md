@@ -27,3 +27,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 yarn add @storybook/cli --dev
 yarn sb init 
 yarn storybook
+
+### step to create grid
+1. base
+2. select
+3. sort
+4. filter

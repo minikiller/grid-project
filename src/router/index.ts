@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import BaseGridView from '../views/BaseGridView.vue'
 import SelectGridView from '../views/SelectGridView.vue'
 import SortGridView from '../views/SortGridView.vue'
+import FilterGridView from '../views/FilterGridView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +25,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/sort',
     name: 'sort',
     component: SortGridView
+  }, {
+    path: '/filter',
+    name: 'filter',
+    component: FilterGridView
   },
   {
     path: '/about',
