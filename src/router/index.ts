@@ -1,11 +1,29 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
+import BaseGridView from '../views/BaseGridView.vue'
+import SelectGridView from '../views/SelectGridView.vue'
+import SortGridView from '../views/SortGridView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/base',
+    name: 'base',
+    component: BaseGridView
+  },
+  {
+    path: '/select',
+    name: 'select',
+    component: SelectGridView
+  },
+  {
+    path: '/sort',
+    name: 'sort',
+    component: SortGridView
   },
   {
     path: '/about',
