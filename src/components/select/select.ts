@@ -8,16 +8,15 @@ export const tcSelectProps = {
 }
 
 export const selectedID = ref(1)
+export const selectedField = 'selected'
 
 export const useSelect = (props, emits) => {
-  const selectedField = 'selected'
-
   onMounted(() => {
     console.debug('useSelect is called!')
   })
 
   const onRowClick = (event) => {
-    console.log('onRowClick')
+    console.log('onRowClick from select')
     // event.dataItem[selectedField] = !event.dataItem[selectedField]
     selectedID.value = event.dataItem[props.idField]
     // event.dataItem[selectedField] = !event.dataItem[selectedField]

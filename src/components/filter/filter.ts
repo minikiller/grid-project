@@ -1,5 +1,5 @@
 import { onMounted, onBeforeMount, ref, computed } from 'vue'
-import { filterBy, orderBy } from '@progress/kendo-data-query'
+import { filterBy, CompositeFilterDescriptor, orderBy } from '@progress/kendo-data-query'
 import { sortColumn } from '../sort/sort'
 import { selectedID } from '../select/select'
 
@@ -15,7 +15,7 @@ export const tcFilterEvents = ['filterChange']
 export const filterData = ref({
   logic: 'and',
   filters: []
-})
+} as CompositeFilterDescriptor)
 
 export const useFilter = (props, emits) => {
   const onFilterChange = (ev) => {
