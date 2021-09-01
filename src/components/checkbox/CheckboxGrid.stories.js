@@ -2,7 +2,7 @@ import CheckboxGrid from './CheckboxGrid.vue'
 import { createRandomData, columns } from '../template/data'
 
 export default {
-  title: 'TCGrid/Example/e.CheckboxGrid',
+  title: 'Examples/CheckboxGrid',
   component: CheckboxGrid,
   argTypes: {
     backgroundColor: { control: 'color' },

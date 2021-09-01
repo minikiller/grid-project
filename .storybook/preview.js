@@ -17,4 +17,9 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ['Examples', ['BaseGrid', 'SelectGrid', 'SortGrid', 'FilterGrid', 'CheckboxGrid']],
+    },
+  },
 }

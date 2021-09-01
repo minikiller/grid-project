@@ -5,7 +5,7 @@ import base from './base.md'
 import { createRandomData, columns } from '../template/data'
 
 export default {
-  title: 'TCGrid/Example/a.BaseGrid',
+  title: 'Examples/BaseGrid',
   component: BaseGrid,
   argTypes: {
     backgroundColor: { control: 'color' },

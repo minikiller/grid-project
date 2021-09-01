@@ -2,7 +2,7 @@ import FilterGrid from './FilterGrid.vue'
 import { createRandomData, columns } from '../template/data'
 
 export default {
-  title: 'TCGrid/Example/d.FilterGrid',
+  title: 'Examples/FilterGrid',
   component: FilterGrid,
   argTypes: {
     backgroundColor: { control: 'color' },

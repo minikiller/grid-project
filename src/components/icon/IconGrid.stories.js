@@ -1,9 +1,8 @@
-import SortGrid from './SortGrid.vue'
-import { createRandomData, columns } from '../template/data'
+import IconGrid from './IconGrid.vue'
 
 export default {
-  title: 'Examples/SortGrid',
-  component: SortGrid,
+  title: 'Examples/IconGrid',
+  component: IconGrid,
   argTypes: {
     backgroundColor: { control: 'color' },
     size: {
@@ -15,25 +14,18 @@ export default {
 
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { SortGrid },
+  components: { IconGrid },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup () {
     return { args }
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<SortGrid v-bind="args" />'
+  template: '<IconGrid v-bind="args" />'
 })
-
-const data = createRandomData(20)
-
-const sortColumns = [{ field: 'ProductID', dir: 'asc' }]
 
 export const Primary = Template.bind({})
 Primary.args = {
-  tcColumns: columns,
-  tcData: data,
-  tcSortColumns: sortColumns,
-  idField: 'ProductID'
+
 }
 
 // export const Secondary = Template.bind({})

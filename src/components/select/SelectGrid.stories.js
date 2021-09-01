@@ -2,7 +2,7 @@ import SelectGrid from './SelectGrid.vue'
 import { createRandomData, columns } from '../template/data'
 
 export default {
-  title: 'TCGrid/Example/b.SelectGrid',
+  title: 'Examples/SelectGrid',
   component: SelectGrid,
   argTypes: {
     backgroundColor: { control: 'color' },
