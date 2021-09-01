@@ -2,7 +2,7 @@ import { onMounted, onBeforeMount, watch, computed, reactive } from 'vue'
 import { selectedField } from '../select/select'
 import { EventType } from '@/model/event-type/EventType'
 
-export const tcCheckboxEvents = [EventType.checkbox.dataChanged, EventType.checkbox.selectChanged]
+export const tcCheckboxEvents = ['dataChanged', 'selectChanged']
 
 export const useCheckbox = (props, emits) => {
   const rdata = reactive({
@@ -31,13 +31,13 @@ export const useCheckbox = (props, emits) => {
   const onSelectionChange = (event) => {
     console.log(event)
     event.dataItem[selectedField] = !event.dataItem[selectedField]
-    emits(EventType.checkbox.selectChanged, props.tcData)
+    emits('selectChanged', props.tcData)
   }
 
   const onRowClick = (event) => {
     console.log('selectChanged from checkbox')
     event.dataItem[selectedField] = !event.dataItem[selectedField]
-    emits(EventType.checkbox.selectChanged, rdata.items)
+    emits('selectChanged', rdata.items)
   }
 
   const onHeaderSelectionChange = (event) => {
@@ -46,7 +46,7 @@ export const useCheckbox = (props, emits) => {
     rdata.items = rdata.items.map((item) => {
       return { ...item, selected: checked }
     })
-    emits(EventType.checkbox.selectChanged, rdata.items)
+    emits('selectChanged', rdata.items)
   }
 
   onMounted(() => {
@@ -55,7 +55,7 @@ export const useCheckbox = (props, emits) => {
       // console.log(item)
       return { ...item, selected: false }
     })
-    emits(EventType.checkbox.selectChanged, rdata.items)
+    emits('selectChanged', rdata.items)
   })
   onBeforeMount(() => {
     // console.debug('useCheckbox is called!')
@@ -69,7 +69,7 @@ export const useCheckbox = (props, emits) => {
   watch(
     () => [...rdata.items],
     (currentValue, oldValue) => {
-      emits(EventType.checkbox.dataChanged, currentValue)
+      emits('dataChanged', currentValue)
     }
   )
 
