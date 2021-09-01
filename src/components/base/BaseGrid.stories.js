@@ -1,4 +1,7 @@
+import { action } from '@storybook/addon-actions'
 import BaseGrid from './BaseGrid.vue'
+import base from './base.md'
+
 import { createRandomData, columns } from '../template/data'
 
 export default {
@@ -9,7 +12,10 @@ export default {
     size: {
       control: { type: 'select', options: ['small', 'medium', 'large'] }
     },
-    onClick: {}
+    onRowClick: {}
+  },
+  parameters: {
+    info: {}
   }
 }
 
@@ -21,7 +27,10 @@ const Template = (args) => ({
     return { args }
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<BaseGrid v-bind="args" />'
+  template: '<BaseGrid v-bind="args" @rowClick="onRowClick"/>',
+  methods: {
+    onRowClick: action('onRowClick')
+  }
 })
 
 const data = createRandomData(20)
@@ -30,12 +39,17 @@ const sortColumns = [{ field: 'ProductID', dir: 'desc' }]
 
 export const Primary = Template.bind({})
 Primary.args = {
-  tcColumns: columns,
-  tcData: data
+  'tc-data': data,
+  'tc-columns': columns
   // tcSortColumns: sortColumns,
   // idField: 'ProductID'
 }
 
+Primary.story = {
+  parameters: {
+    notes: { base }
+  }
+}
 // export const Secondary = Template.bind({})
 // Secondary.args = {
 //   label: 'Button'
