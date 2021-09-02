@@ -1,5 +1,5 @@
 <template>
-  <grid :style="{ height: '230px' }" :data-items="items" :columns="columns">
+  <grid :style="{ height: '230px' }" :data-items="tcData" :columns="columns">
     <template v-slot:myHeaderTemplate="{}">
       <a class="k-link" @click="onIconClick">
         <span class="k-icon k-i-settings" />
@@ -16,7 +16,7 @@
     <column-grid
       ref="mygrid"
       @columnChange="onColumnChange"
-      :allColumn="columns"
+      :allColumn="colData"
     ></column-grid>
     <div class="text-right">
       <button type="button" class="k-button" @click="onCancel">Cancel</button>
@@ -34,63 +34,34 @@ import { Button } from '@progress/kendo-vue-buttons'
 
 import ColumnGrid from '../column/ColumnGrid.vue'
 
-import { ref } from 'vue'
+import { ref, defineProps, onMounted, computed } from 'vue'
 
 const visibleWindow = ref(false)
 const columnData = ref()
 const mygrid = ref<InstanceType<typeof ColumnGrid>>(null)
 // const mygrid = ref<typeof ColumnGrid | null>(null)
-const columns = ref([
-  {
-    ID: 1,
-    field: 'ID',
-    title: 'ID',
-    width: '40px',
-    headerCell: 'myHeaderTemplate',
-    hidden: false,
-    selected: false
-  },
-  {
-    ID: 2,
-    field: 'ProductName',
-    title: 'Product Name',
-    selected: false,
-    hidden: false
-  },
-  {
-    ID: 3,
-    field: 'UnitPrice',
-    title: 'Price',
-    hidden: false,
-    selected: false
-  }
-])
+const props = defineProps({
+  tcColumns: { type: Array, required: true },
+  tcData: { type: Array, required: true }
+})
 
-const items = [{
-  ID: 1,
-  ProductName: 'Chai',
-  UnitPrice: 18.0000
-},
-{
-  ID: 2,
-  ProductName: 'Chang',
-  UnitPrice: 19.0000
-},
-{
-  ID: 3,
-  ProductName: 'Aniseed Syrup',
-  UnitPrice: 10.0000
-},
-{
-  ID: 4,
-  ProductName: "Chef Anton's Cajun Seasoning",
-  UnitPrice: 22.0000
-}]
+const columns = ref([])
 
 const onIconClick = () => {
   visibleWindow.value = !visibleWindow.value
   console.log('clicked')
 }
+
+const colData = computed(() => {
+  const value = Object.assign([], props.tcColumns)
+  const idx = value.findIndex(e => {
+    return e.field === 'ID'
+  })
+  value.splice(idx, 1)
+  // add selected to array
+  value.map((item) => { item.selected = false })
+  return value
+})
 
 const onCancel = () => {
   visibleWindow.value = !visibleWindow.value
@@ -98,25 +69,36 @@ const onCancel = () => {
 
 const onSave = () => {
   // console.log(mygrid.value?.getSelect())
+  console.log('dfdfdfdfdf')
   visibleWindow.value = !visibleWindow.value
   console.log(columnData.value)
   columns.value.map((item) => {
+    if (item.field === 'ID') { return }
     item.hidden = true
   })
   if (columnData.value) {
     // console.log(columnData.value)
     columnData.value.map((item) => {
-      const index = columns.value.findIndex(_item => _item.ID === item.ID)
+      const index = columns.value.findIndex(_item => _item.field === item.field)
       if (index > -1) {
         columns.value[index].hidden = false
+        console.log('prpo is ', columns.value[index].hidden)
+        console.log(columns.value[index].title)
+      } else {
+        console.log('not find', item.id)
       }
     })
+    console.log(columns.value)
   }
 }
 
 const onColumnChange = (data) => {
-  // console.log(data)
+  console.log(data)
   columnData.value = data
 }
+
+onMounted(() => {
+  columns.value = props.tcColumns
+})
 
 </script>

@@ -1,4 +1,5 @@
 import IconGrid from './IconGrid.vue'
+import { createRandomData, columns } from '../template/data'
 
 export default {
   title: 'Examples/IconGrid',
@@ -22,10 +23,12 @@ const Template = (args) => ({
   // And then the `args` are bound to your component with `v-bind="args"`
   template: '<IconGrid v-bind="args" />'
 })
+const data = createRandomData(20)
 
 export const Primary = Template.bind({})
 Primary.args = {
-
+  tcColumns: columns,
+  tcData: data
 }
 
 // export const Secondary = Template.bind({})

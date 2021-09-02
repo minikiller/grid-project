@@ -6,6 +6,7 @@ import SortGridView from '../views/SortGridView.vue'
 import FilterGridView from '../views/FilterGridView.vue'
 import CheckboxGridView from '../views/CheckboxGridView.vue'
 import GroupGridView from '../views/GroupGridView.vue'
+import IconGridView from '../views/IconGridView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -39,6 +40,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/group',
     name: 'group',
     component: GroupGridView
+  }, {
+    path: '/icon',
+    name: 'icon',
+    component: IconGridView
   },
   {
     path: '/about',

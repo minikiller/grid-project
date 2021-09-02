@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { Grid } from '@progress/kendo-vue-grid'
-import { defineProps, defineEmits, onMounted, reactive } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 import { tcBaseProps, tcBaseEvents } from '../base/base'
 import { tcSelectProps, useSelect } from '../select/select'
 import { tcSortProps, tcSortEvents, useSort } from '../sort/sort'

@@ -69,6 +69,10 @@ export const useCheckbox = (props, emits) => {
   watch(
     () => [...rdata.items],
     (currentValue, oldValue) => {
+      // rdata.items = currentValue.map((item) => {
+      //   // console.log(item)
+      //   return { ...item, selected: false }
+      // })
       emits('dataChanged', currentValue)
     }
   )

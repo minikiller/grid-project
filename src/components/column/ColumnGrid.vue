@@ -47,7 +47,8 @@ import { ref, defineEmits, reactive, defineProps, onMounted, PropType } from 'vu
 const emit = defineEmits(['columnChange'])
 
 const props = defineProps({
-  allColumn: { type: Array, required: true }
+  allColumn: { type: Array, required: true },
+  idFields: String
 })
 
 const leftGrid = ref()
@@ -58,13 +59,13 @@ const rightBtn = ref()
 const isLeftBtnDisabled = ref(true)
 const isRightBtnDisabled = ref(true)
 const staticColumns = [
-  {
-    field: 'ID',
-    filterable: false,
-    title: 'ID',
-    width: '50px'
-    // hidden: true
-  },
+  // {
+  //   field: 'ID',
+  //   filterable: false,
+  //   title: 'ID',
+  //   width: '50px'
+  //   // hidden: true
+  // },
   { field: 'field', title: 'Column Name' },
   { field: 'title', title: 'Title Name' }
 ]
@@ -77,8 +78,11 @@ const rdata = reactive(
 )
 
 onMounted(() => {
+  console.log('onmounted')
   props.allColumn.map((item) => {
-    console.log('loop for mounted')
+    // if (item.field === 'ID') {
+    //   return
+    // }
     if (item.hidden === true) {
       rdata.leftData.push(item)
     } else {

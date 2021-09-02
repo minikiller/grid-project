@@ -12,6 +12,13 @@ export const createRandomData = (count) => {
 }
 
 export const columns = [
+  {
+    field: 'ID',
+    title: 'ID',
+    width: '40px',
+    headerCell: 'myHeaderTemplate',
+    selected: false
+  },
   { field: 'ProductID', title: 'ID', width: '50px', filterable: false },
   { field: 'ProductName', title: 'Product Name' },
   { field: 'UnitPrice', filter: 'numeric', title: 'Unit Price' },

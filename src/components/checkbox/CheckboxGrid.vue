@@ -17,7 +17,7 @@ import { tcBaseProps, tcBaseEvents } from '../base/base'
 import { tcSelectProps, useSelect } from '../select/select'
 import { tcCheckboxEvents, useCheckbox } from './checkbox'
 
-const props = defineProps({ ...tcBaseProps, ...tcSelectProps })
+const props = defineProps({ ...tcBaseProps })
 
 const emits = defineEmits([...tcBaseEvents, ...tcCheckboxEvents])
 
