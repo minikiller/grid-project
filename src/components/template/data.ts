@@ -17,9 +17,10 @@ export const columns = [
     title: 'ID',
     width: '40px',
     headerCell: 'myHeaderTemplate',
+    filterable: false,
     selected: false
   },
-  { field: 'ProductID', title: 'ID', width: '50px', filterable: false },
+  { field: 'ProductID', title: 'ID', width: '80px', filterable: false },
   { field: 'ProductName', title: 'Product Name' },
   { field: 'UnitPrice', filter: 'numeric', title: 'Unit Price' },
   { field: 'UnitsInStock', title: 'Units In Stock' }

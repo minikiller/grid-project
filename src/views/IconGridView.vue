@@ -1,8 +1,8 @@
 <template>
   <div>
     <icon-grid
-      :tc-columns="columns"
-      :tc-data="data"
+      :my-columns="columns"
+      :my-data="data"
     ></icon-grid>
   </div>
 </template>

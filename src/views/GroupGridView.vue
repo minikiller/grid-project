@@ -6,7 +6,8 @@
       :id-field="'ProductID'"
       @rowClick="onRowClick"
       :tc-sort-columns="sortColumns"
-    ></group-grid>
+    >
+    </group-grid>
   </div>
 </template>
 

@@ -19,7 +19,8 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Examples', ['BaseGrid', 'SelectGrid', 'SortGrid', 'FilterGrid', 'CheckboxGrid']],
+      order: ['Examples', ['BaseGrid', 'SelectGrid', 'SortGrid', 'FilterGrid', 'CheckboxGrid'],
+        'Example', ['Test', 'Button']],
     },
   },
 }

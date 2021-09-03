@@ -1,7 +1,6 @@
 <template>
   <Grid
     ref="grid"
-    :style="{ height: '520px' }"
     :data-items="items"
     :columns="tcColumns"
     @rowclick="onRowClick"
@@ -18,6 +17,11 @@
     @datastatechange="dataStateChange"
     @expandchange="expandChange"
   >
+    <template v-slot:myHeaderTemplate="{}">
+      <a class="k-link" @click="onIconClick">
+        <span class="k-icon k-i-settings" />
+      </a>
+    </template>
   </Grid>
 </template>
 
@@ -32,11 +36,16 @@ import { useGroup } from './group'
 
 const props = defineProps({ ...tcBaseProps, ...tcSelectProps, ...tcSortProps, ...tcFilterProps })
 
-const emits = defineEmits([...tcBaseEvents, ...tcSortEvents, ...tcFilterEvents])
+const emits = defineEmits(['iconClick', ...tcBaseEvents, ...tcSortEvents, ...tcFilterEvents])
 
 const { selectedField, onRowClick } = useSelect(props, emits)
 const { sortColumn, onSortChange } = useSort(props, emits)
 const { onFilterChange } = useFilter(props, emits)
 const { dataStateChange, expandChange, rdata, items } = useGroup(props, emits)
+
+const onIconClick = () => {
+  emits('iconClick')
+  console.log('clicked')
+}
 
 </script>
