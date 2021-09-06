@@ -11,6 +11,7 @@ import { onMounted, ref } from '@vue/runtime-core'
 const mydata = ref([])// createRandomData(20)
 
 // const data = ref([])
+// mydata.value = createRandomData(20)
 onMounted(() => {
   mydata.value = setTimeout(() => {
     return createRandomData(20)
