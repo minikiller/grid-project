@@ -16,7 +16,7 @@ export const useGroup = (props, emits) => {
 
   const rdata = reactive({
     gridData,
-    gridPageable: { pageSizes: true },
+    // gridPageable: { pageSizes: true },
     skip,
     take,
     group,

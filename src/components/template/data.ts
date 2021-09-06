@@ -12,14 +12,14 @@ export const createRandomData = (count) => {
 }
 
 export const columns = [
-  {
-    field: 'ID',
-    title: 'ID',
-    width: '40px',
-    headerCell: 'myHeaderTemplate',
-    filterable: false,
-    selected: false
-  },
+  // {
+  //   field: 'ID',
+  //   title: 'ID',
+  //   width: '40px',
+  //   headerCell: 'myHeaderTemplate',
+  //   filterable: false,
+  //   selected: false
+  // },
   { field: 'ProductID', title: 'ID', width: '80px', filterable: false },
   { field: 'ProductName', title: 'Product Name' },
   { field: 'UnitPrice', filter: 'numeric', title: 'Unit Price' },

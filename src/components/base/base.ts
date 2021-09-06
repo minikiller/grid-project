@@ -14,10 +14,10 @@ export const tcBaseProps = {
 export const tcBaseEvents = ['rowClick']
 
 export const useBase = (props, emits) => {
-  const columns = ref([])
+  const mycolumns = ref([])
 
   const columnReorder = (event) => {
-    columns.value = event.columns
+    mycolumns.value = event.columns
   }
 
   const onRowClick = (event) => {
@@ -27,8 +27,8 @@ export const useBase = (props, emits) => {
 
   onMounted(() => {
     console.debug('useBase is called!')
-    columns.value = props.tcColumns
+    mycolumns.value = props.tcColumns
   })
 
-  return { onRowClick, columnReorder, columns }
+  return { onRowClick, columnReorder, mycolumns }
 }

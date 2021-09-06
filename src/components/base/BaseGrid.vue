@@ -2,7 +2,7 @@
   <Grid
     :style="{ height: '520px' }"
     :data-items="tcData"
-    :columns="columns"
+    :columns="mycolumns"
     :reorderable="true"
     @rowclick="onRowClick"
     @columnreorder="columnReorder"
@@ -19,6 +19,6 @@ const props = defineProps({ ...tcBaseProps })
 
 const emits = defineEmits([...tcBaseEvents])
 
-const { onRowClick, columnReorder, columns } = useBase(props, emits)
+const { onRowClick, columnReorder, mycolumns } = useBase(props, emits)
 
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-grid :tc-columns="columns" :tc-data="data"></base-grid>
+    <base-grid :tc-columns="columns" :tc-data="mydata"></base-grid>
   </div>
 </template>
 
@@ -8,9 +8,13 @@
 import BaseGrid from '@/components/base/BaseGrid.vue'
 import { createRandomData, columns } from '@/components/template/data'
 import { onMounted, ref } from '@vue/runtime-core'
-const data = createRandomData(20)
+const mydata = ref([])// createRandomData(20)
+
 // const data = ref([])
 onMounted(() => {
+  mydata.value = setTimeout(() => {
+    return createRandomData(20)
+  }, 5000)
   // data.value = createRandomData(20)
 })
 </script>
