@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue'
-import { Grid } from '@progress/kendo-vue-grid'
+import { GridVue3 as Grid } from '@progress/kendo-vue-grid'
 import { tcBaseProps, tcBaseEvents, useBase } from './base'
 
 const props = defineProps({ ...tcBaseProps })
