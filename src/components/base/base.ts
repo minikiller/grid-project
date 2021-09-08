@@ -1,4 +1,4 @@
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 export const tcBaseProps = {
   tcData: {
@@ -11,24 +11,20 @@ export const tcBaseProps = {
   }
 }
 
-export const tcBaseEvents = ['rowClick']
+export const tcBaseEvents = ['rowClick', 'update:tcColumns']
 
 export const useBase = (props, emits) => {
-  const mycolumns = ref([])
+  const mycolumns = ref(props.tcColumns)
 
   const columnReorder = (event) => {
     mycolumns.value = event.columns
+    emits('update:tcColumns', event.columns)
   }
 
   const onRowClick = (event) => {
     console.debug(event.dataItem)
     emits('rowClick', event.dataItem)
   }
-
-  onMounted(() => {
-    console.debug('useBase is called!')
-    mycolumns.value = props.tcColumns
-  })
 
   return { onRowClick, columnReorder, mycolumns }
 }
