@@ -39,7 +39,8 @@ import { ref, defineProps, onMounted, computed } from 'vue'
 
 const visibleWindow = ref(false)
 const columnData = ref()
-const myColumns = ref([])
+// const myColumns = ref([])
+const myColumns = ref([{ field: 'ProductID' }])
 const sortColumns = [{ field: 'ProductID', dir: 'desc' }]
 
 const mygrid = ref<InstanceType<typeof ColumnGrid>>(null)

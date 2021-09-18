@@ -10,10 +10,10 @@ const action = (key) => {
     const data = resultMap.get(key)
     if (data) { data.count = data.count + 1 }
   } else {
-    const intrval = setInterval(() => {
+    const interval = setInterval(() => {
       console.log('This is testing ' + key)
     }, 10000)
-    resultMap.set(key, { count: 1, timer: intrval })
+    resultMap.set(key, { count: 1, timer: interval })
   }
 }
 
